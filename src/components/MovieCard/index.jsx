@@ -2,8 +2,7 @@ import { Card, Name } from './styles';
 
 export const MovieCard = ({ movie }) => {
   return (
-    <Card>
-      <img src={ movie.poster } alt={ movie.title }/>
+    <Card poster={ movie.backdrop }>
       <Name>{ movie.title }</Name>
     </Card>
   );

@@ -1,20 +1,30 @@
-import { MovieCard } from '../../components/MovieCard/index.jsx';
-import { MovieInfo } from '../../components/MovieInfo/index.jsx';
+import { useMovies } from '../../hooks/useMovies/index.js';
+import { Container, CarouselContainer, MovieInfo } from './styles.js';
+import { SwiperComponent } from './components/swiper.jsx';
+import { useState } from 'react';
+
 
 export const Home = () => {
-  const movie = {
-    title: 'The Green Mile',
-    poster: 'https://images-na.ssl-images-amazon.com/images/I/51oDs32SXlL._AC_.jpg',
-    rating: '9.5',
-    classification: '16',
-    duration: '3h 9min',
-    genre: 'Crime, Drama, Fantasy',
-    releaseDate: '27 November 1999',
+  const { movies, loading } = useMovies();
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const handleSlideChange = (swiper) => {
+    setCurrentSlide(swiper.activeIndex);
   };
+
+  if (loading) {
+    return <p>Loading...</p>;
+  }
+
+
   return (
-    <div>
-      <MovieInfo movie={ movie }/>
-      <MovieCard movie={ movie }/>
-    </div>
+    <Container>
+      <MovieInfo poster={ movies[currentSlide]?.backdrop }>
+        <h1>{ movies[currentSlide]?.title }</h1>
+        <p>{ movies[currentSlide]?.overview }</p>
+      </MovieInfo>
+      <CarouselContainer>
+        <SwiperComponent movies={ movies } handleSlideChange={ handleSlideChange }/>
+      </CarouselContainer>
+    </Container>
   );
 };

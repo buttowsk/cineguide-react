@@ -10,7 +10,7 @@ export const useMovies = () => {
   const getMovies = useCallback(async () => {
     try {
       setLoading(true);
-      const { data } = await dbApi.get('/movies');
+      const { data } = await dbApi.get('/catalog/movies/');
       setMovies(data);
     } catch (error) {
       setError(error);
