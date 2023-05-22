@@ -22,8 +22,8 @@ export const SwiperComponent = ({ movies, handleSlideChange }) => {
           slideShadows: false,
         } }
         navigation={ true }
-        slidesPerView={ 4 }
-        onSlideChange={ handleSlideChange } // Adicionando o manipulador de evento de alteração de slide
+        slidesPerView={ 3 }
+        onSlideChange={ handleSlideChange }
       >
         { movies.map((movie) => (
           <SwiperSlide key={ movie.id }>
