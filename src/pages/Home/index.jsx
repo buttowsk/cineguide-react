@@ -20,7 +20,7 @@ export const Home = () => {
   return (
     <Container>
       <Header/>
-      <Content>
+      <Content bgColor={movies[currentSlide]?.colors}>
         <MovieInfo poster={ movies[currentSlide]?.backdrop }>
           <h1>{ movies[currentSlide]?.title }</h1>
           <p>{ movies[currentSlide]?.overview }</p>

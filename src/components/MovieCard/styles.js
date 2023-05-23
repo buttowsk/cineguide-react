@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Card = styled.div`
-  background: ${ ({ poster }) => `url(${ poster }) no-repeat center center` };
+  background: ${ ({ poster }) => `url(${ poster }) no-repeat center center / cover` };
   border-radius: 10px;
   max-width: 350px;
   flex: 1 0 350px;

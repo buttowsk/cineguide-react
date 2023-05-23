@@ -25,7 +25,7 @@ export const MovieInfo = styled.div`
   height: 50%;
   padding: 1rem;
   background: ${ ({ poster }) => `url(${ poster }) no-repeat center center` };
-  background-size: auto;
+  background-size: contain;
   border-radius: 10px;
   color: #000;
   z-index: 0;
